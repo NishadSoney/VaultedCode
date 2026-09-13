@@ -1,0 +1,7 @@
+{
+  "name": "Smart Contract Vulnerability Detector & Code Patching",
+  "description": "Static analysis and Gemini AI-powered vulnerability detection and automated patch generation for Solidity smart contracts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
