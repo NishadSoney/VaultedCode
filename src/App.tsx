@@ -5,6 +5,7 @@ import { RiskScoreCard } from './components/RiskScoreCard';
 import { FindingCard } from './components/FindingCard';
 import { CleanStateCard } from './components/CleanStateCard';
 import { ReportExportModal } from './components/ReportExportModal';
+import { LiveCodeMonitor } from './components/LiveCodeMonitor';
 import { SampleContract, AnalysisResult } from './types';
 import { Shield, Sparkles, Download, RotateCcw, AlertCircle, FileCheck2 } from 'lucide-react';
 
@@ -22,21 +23,11 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [backendOnline, setBackendOnline] = useState<boolean | null>(null);
   const [isExportOpen, setIsExportOpen] = useState<boolean>(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   // Fetch samples and health on mount
   useEffect(() => {
     fetchHealth();
     fetchSamples();
-
-    const handleMouseMove = (e: MouseEvent) => {
-      // Calculate rotation based on center of screen. Reversed axes for looking "at" the cursor.
-      const x = (e.clientX / window.innerWidth - 0.5) * 30; // -15 to +15 deg
-      const y = (e.clientY / window.innerHeight - 0.5) * -30; // -15 to +15 deg
-      setMousePos({ x, y });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const fetchHealth = async () => {
@@ -165,17 +156,8 @@ export default function App() {
               Detect reentrancy bugs, broken access control, and logic vulnerabilities via static analysis. Receive clear, human-understandable explanations, exploit scenarios, and complete AI-generated code patches.
             </p>
           </div>
-          <div className="relative z-10 hidden md:flex w-64 h-64 lg:w-80 lg:h-80 shrink-0 mr-16 justify-center items-center" style={{ perspective: 1200 }}>
-             <img 
-               src="/monitor_transparent.png" 
-               alt="Secure Terminal" 
-               className="w-full h-full object-contain drop-shadow-2xl"
-               style={{ 
-                 transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg) scale(1.15)`,
-                 transition: 'transform 0.1s ease-out',
-                 transformStyle: 'preserve-3d'
-               }} 
-             />
+          <div className="relative z-10 hidden md:flex shrink-0 my-2">
+            <LiveCodeMonitor />
           </div>
         </div>
 
