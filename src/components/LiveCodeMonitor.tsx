@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, ShieldAlert, Cpu } from 'lucide-react';
+import { Shield, ShieldAlert, Cpu } from 'lucide-react';
 
 const CODE_LINES = [
-  '// VaultedCode AI Auditor v2.4',
+  '// VaultedCode AI Security Scan Engine',
   'contract SecureVault {',
   '    mapping(address => uint256) private balances;',
   '    bool private locked;',
@@ -56,43 +56,40 @@ export const LiveCodeMonitor: React.FC = () => {
         setCurrentLineIndex((prev) => prev + 1);
         setCurrentCharIndex(0);
       }
-    }, 28);
+    }, 25);
 
     return () => clearTimeout(typingInterval);
   }, [currentLineIndex, currentCharIndex]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-md lg:max-w-lg shrink-0">
-      {/* Monitor Display Frame */}
-      <div className="w-full bg-slate-900 border-2 border-slate-700/80 rounded-xl shadow-2xl shadow-indigo-950/50 overflow-hidden relative group">
+    <div className="flex flex-col items-center justify-center w-[460px] min-w-[460px] max-w-[460px] shrink-0">
+      {/* Constant Fixed Size Monitor Display Frame */}
+      <div className="w-[460px] min-w-[460px] max-w-[460px] h-[290px] min-h-[290px] max-h-[290px] bg-slate-950/80 backdrop-blur-xl border border-slate-700/60 rounded-xl shadow-2xl shadow-indigo-950/60 overflow-hidden relative flex flex-col justify-between group">
         
-        {/* Subtle Screen Bezel Glare / Glass Reflection */}
+        {/* Subtle Screen Bezel Glare */}
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-white/5 via-transparent to-transparent pointer-events-none z-20" />
 
-        {/* Monitor Header / Window Topbar */}
-        <div className="bg-slate-950 px-4 py-2.5 flex items-center justify-between border-b border-slate-800 relative z-10">
+        {/* Translucent Window Topbar with "VaultedCode" Title (No Dots) */}
+        <div className="bg-slate-900/40 backdrop-blur-md px-4 py-2.5 flex items-center justify-between border-b border-white/10 relative z-10 shrink-0">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-            <span className="text-[11px] font-mono text-slate-400 ml-2 flex items-center gap-1.5">
-              <Terminal className="w-3 h-3 text-indigo-400" />
-              SecurityVault.sol &bull; AI Live Scan
+            <Shield className="w-4 h-4 text-indigo-400" />
+            <span className="text-xs font-bold tracking-wide text-white font-sans">
+              VaultedCode
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 animate-pulse">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-sm animate-pulse">
               <Cpu className="w-3 h-3 text-emerald-400" />
-              LIVE
+              LIVE SCAN
             </span>
           </div>
         </div>
 
-        {/* IDE Code Area with Blurred Code Effect */}
-        <div className="p-4 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black h-56 lg:h-64 font-mono text-[12px] leading-relaxed overflow-hidden relative select-none">
+        {/* Fixed Height IDE Code Area with Constant Screen Rectangle */}
+        <div className="p-4 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/90 via-slate-950/95 to-black/95 flex-1 font-mono text-[12px] leading-relaxed overflow-hidden relative select-none">
           
-          {/* Blurred Code Lines Container */}
+          {/* Blurred Live Code Container */}
           <div className="filter blur-[1.2px] hover:blur-none transition-all duration-300 space-y-1">
             {displayedLines.map((line, idx) => {
               let lineStyle = 'text-slate-300';
@@ -118,23 +115,23 @@ export const LiveCodeMonitor: React.FC = () => {
             })}
           </div>
 
-          {/* Glowing Scanline Layer */}
+          {/* Scanline Glow Layer */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none animate-pulse z-10" />
           
-          {/* Bottom Security Status Strip */}
-          <div className="absolute bottom-2 right-3 z-20 flex items-center gap-1.5 bg-slate-900/90 backdrop-blur border border-indigo-500/30 px-2.5 py-1 rounded-md text-[10px] text-indigo-300 font-mono">
+          {/* Bottom Security Status Badge */}
+          <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 bg-slate-900/80 backdrop-blur-md border border-indigo-500/30 px-2.5 py-1 rounded-md text-[10px] text-indigo-300 font-mono shadow-lg">
             <ShieldAlert className="w-3 h-3 text-indigo-400 animate-spin" style={{ animationDuration: '4s' }} />
             <span>Analyzing checks-effects-interactions...</span>
           </div>
         </div>
       </div>
 
-      {/* Computer Monitor Stand & Base */}
+      {/* Sleek Monitor Neck & Base */}
       <div className="flex flex-col items-center">
-        {/* Monitor Neck / Stem */}
-        <div className="w-12 h-3 bg-gradient-to-b from-slate-700 to-slate-800 border-x border-slate-600 shadow-inner" />
-        {/* Monitor Stand Base */}
-        <div className="w-32 h-1.5 bg-slate-700 rounded-full border border-slate-600 shadow-md" />
+        {/* Stem */}
+        <div className="w-10 h-3 bg-gradient-to-b from-slate-700 to-slate-800 border-x border-slate-600 shadow-inner" />
+        {/* Base */}
+        <div className="w-28 h-1.5 bg-slate-700 rounded-full border border-slate-600 shadow-md" />
       </div>
     </div>
   );

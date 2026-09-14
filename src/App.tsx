@@ -156,7 +156,7 @@ export default function App() {
               Detect reentrancy bugs, broken access control, and logic vulnerabilities via static analysis. Receive clear, human-understandable explanations, exploit scenarios, and complete AI-generated code patches.
             </p>
           </div>
-          <div className="relative z-10 hidden md:flex shrink-0 my-2">
+          <div className="relative z-10 hidden md:flex shrink-0 my-2 md:mr-4 lg:mr-8">
             <LiveCodeMonitor />
           </div>
         </div>
