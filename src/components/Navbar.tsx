@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, ShieldAlert, Cpu, Sparkles, FileCode2 } from 'lucide-react';
+import { ShieldCheck, Cpu, Sparkles } from 'lucide-react';
 
 interface NavbarProps {
   backendOnline: boolean | null;
@@ -17,10 +17,10 @@ export const Navbar: React.FC<NavbarProps> = ({ backendOnline, scannerName }) =>
           <div>
             <div className="flex items-center gap-2">
               <h1 
-                className="text-3xl text-slate-900 tracking-tight leading-none"
+                className="text-2xl sm:text-3xl text-slate-900 tracking-tight leading-none"
                 style={{ fontFamily: "'Gotham Bold', 'Gotham', 'Montserrat', sans-serif", fontWeight: 800 }}
               >
-                VaultCode
+                VaultedCode
               </h1>
             </div>
             <p className="text-xs text-slate-500 mt-0.5">

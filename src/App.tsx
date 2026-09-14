@@ -7,9 +7,7 @@ import { CleanStateCard } from './components/CleanStateCard';
 import { ReportExportModal } from './components/ReportExportModal';
 import { LiveCodeMonitor } from './components/LiveCodeMonitor';
 import { SampleContract, AnalysisResult } from './types';
-import { Shield, Sparkles, Download, RotateCcw, AlertCircle, FileCheck2 } from 'lucide-react';
-
-const DEFAULT_SOL = ``;
+import { Shield, Sparkles, Download, RotateCcw } from 'lucide-react';
 
 export default function App() {
   const [sampleContracts, setSampleContracts] = useState<SampleContract[]>([]);
@@ -50,7 +48,6 @@ export default function App() {
         const data = await res.json();
         if (data.contracts && data.contracts.length > 0) {
           setSampleContracts(data.contracts);
-          // Demos are now only loaded when explicitly clicked by the user.
         }
       }
     } catch (e) {
@@ -94,7 +91,6 @@ export default function App() {
       formData.append('code', sourceCode);
       formData.append('contract_name', fileName.replace('.sol', '') || 'Contract');
 
-      // Update loading message after 2s to reflect LLM synthesis step
       const stepTimer = setTimeout(() => {
         setLoadingStep('Generating Explanations & AI Patches with Gemini...');
       }, 2200);
@@ -114,7 +110,6 @@ export default function App() {
       const data: AnalysisResult = await response.json();
       setAnalysisResult(data);
 
-      // Smooth scroll down to results
       setTimeout(() => {
         document.getElementById('results-section')?.scrollIntoView({ behavior: 'smooth' });
       }, 150);
@@ -254,7 +249,7 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-6 mt-12 text-center text-xs text-slate-400">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span>VaultCode &bull; Built with Slither Analyzer & Google Gemini AI</span>
+          <span>VaultedCode &bull; Built with Slither Analyzer & Google Gemini AI</span>
           <span>Hackathon Edition &bull; End-to-End Vulnerability Detection & Remediation</span>
         </div>
       </footer>
