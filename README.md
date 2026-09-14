@@ -53,8 +53,7 @@ In short: smart contracts don't get second chances. SolidityGuard AI makes sure 
 
 ## 📸 Preview
 
-> _Add a screenshot or GIF of the dashboard here, e.g._
-> `![Dashboard preview](docs/preview.png)`
+![VaultedCode Dashboard Preview](docs/preview.png)
 
 ---
 
