@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Shield, Cpu } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Shield, Cpu, MousePointer2 } from 'lucide-react';
 
 const CODE_LINES = [
   '// VaultedCode AI Security Scan Engine',
@@ -27,6 +27,30 @@ export const LiveCodeMonitor: React.FC = () => {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
+  
+  // Direct DOM ref for zero-latency, real-time 60fps mouse tracking
+  const cursorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let rafId: number;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      rafId = requestAnimationFrame(() => {
+        if (cursorRef.current) {
+          const x = Math.min(Math.max((e.clientX / window.innerWidth) * 100, 3), 93);
+          const y = Math.min(Math.max((e.clientY / window.innerHeight) * 100, 5), 90);
+          cursorRef.current.style.left = `${x}%`;
+          cursorRef.current.style.top = `${y}%`;
+        }
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   useEffect(() => {
     if (currentLineIndex >= CODE_LINES.length) {
@@ -66,6 +90,15 @@ export const LiveCodeMonitor: React.FC = () => {
       {/* Shrunk Fixed Size Monitor Display Frame */}
       <div className="w-[380px] min-w-[380px] max-w-[380px] h-[230px] min-h-[230px] max-h-[230px] bg-slate-950/80 backdrop-blur-xl border border-slate-700/60 rounded-xl shadow-2xl shadow-indigo-950/60 overflow-hidden relative flex flex-col justify-between group">
         
+        {/* Zero-latency Hardware-Accelerated Virtual Cursor */}
+        <div 
+          ref={cursorRef}
+          className="absolute pointer-events-none z-30 will-change-[left,top]"
+          style={{ left: '50%', top: '50%' }}
+        >
+          <MousePointer2 className="w-3.5 h-3.5 text-indigo-400 drop-shadow-[0_0_10px_rgba(99,102,241,0.95)] fill-indigo-500/40" />
+        </div>
+
         {/* Subtle Screen Bezel Glare */}
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-white/5 via-transparent to-transparent pointer-events-none z-20" />
 
