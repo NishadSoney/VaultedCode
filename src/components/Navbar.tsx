@@ -11,12 +11,12 @@ export const Navbar: React.FC<NavbarProps> = ({ backendOnline, scannerName }) =>
     <header className="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-0 z-30 animate-fade-in" id="main-header">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-sm shadow-indigo-200 animate-pulse-slow">
+          <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-sm shadow-indigo-200 animate-pulse-slow">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 
+              <h1
                 className="text-2xl sm:text-3xl text-slate-900 tracking-tight leading-none"
                 style={{ fontFamily: "'Gotham Bold', 'Gotham', 'Montserrat', sans-serif", fontWeight: 800 }}
               >
