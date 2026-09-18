@@ -27,7 +27,7 @@ export const LiveCodeMonitor: React.FC = () => {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
-  
+
   // Direct DOM ref for zero-latency, real-time 60fps mouse tracking
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -86,12 +86,12 @@ export const LiveCodeMonitor: React.FC = () => {
   }, [currentLineIndex, currentCharIndex]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-[380px] min-w-[380px] max-w-[380px] shrink-0">
+    <div className="flex flex-col items-center justify-center w-95 min-w-95 max-w-[380px] shrink-0">
       {/* Shrunk Fixed Size Monitor Display Frame */}
       <div className="w-[380px] min-w-[380px] max-w-[380px] h-[230px] min-h-[230px] max-h-[230px] bg-slate-950/80 backdrop-blur-xl border border-slate-700/60 rounded-xl shadow-2xl shadow-indigo-950/60 overflow-hidden relative flex flex-col justify-between group">
-        
+
         {/* Zero-latency Hardware-Accelerated Virtual Cursor */}
-        <div 
+        <div
           ref={cursorRef}
           className="absolute pointer-events-none z-30 will-change-[left,top]"
           style={{ left: '50%', top: '50%' }}
@@ -121,7 +121,7 @@ export const LiveCodeMonitor: React.FC = () => {
 
         {/* Fixed Compact IDE Code Area - More Code Visible */}
         <div className="p-3 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/90 via-slate-950/95 to-black/95 flex-1 font-mono text-[10px] leading-snug overflow-hidden relative select-none">
-          
+
           {/* Blurred Live Code Container */}
           <div className="filter blur-[1px] hover:blur-none transition-all duration-300 space-y-[2px]">
             {displayedLines.map((line, idx) => {
