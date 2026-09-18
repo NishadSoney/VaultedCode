@@ -120,10 +120,10 @@ export const LiveCodeMonitor: React.FC = () => {
         </div>
 
         {/* Fixed Compact IDE Code Area - More Code Visible */}
-        <div className="p-3 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/90 via-slate-950/95 to-black/95 flex-1 font-mono text-[10px] leading-snug overflow-hidden relative select-none">
+        <div className="p-3 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-slate-900/90 via-slate-950/95 to-black/95 flex-1 font-mono text-[10px] leading-snug overflow-hidden relative select-none">
 
           {/* Blurred Live Code Container */}
-          <div className="filter blur-[1px] hover:blur-none transition-all duration-300 space-y-[2px]">
+          <div className="filter blur-[1px] hover:blur-none transition-all duration-300 space-y-0.5">
             {displayedLines.map((line, idx) => {
               let lineStyle = 'text-slate-300';
               if (line.startsWith('//')) lineStyle = 'text-emerald-400 font-semibold';
@@ -149,7 +149,7 @@ export const LiveCodeMonitor: React.FC = () => {
           </div>
 
           {/* Scanline Glow Layer */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none animate-pulse z-10" />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-indigo-500/5 to-transparent pointer-events-none animate-pulse z-10" />
         </div>
       </div>
 
