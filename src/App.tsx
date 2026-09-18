@@ -138,7 +138,7 @@ export default function App() {
 
       <main className="flex-1 w-full mx-auto px-4 sm:px-6 lg:px-12 py-8 space-y-8 animate-fade-in">
         {/* Banner */}
-        <div className="bg-gradient-to-r from-indigo-900 via-slate-900 to-slate-950 rounded-2xl p-8 sm:p-10 text-white shadow-2xl relative overflow-hidden animate-slide-up hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col md:flex-row items-center justify-between">
+        <div className="bg-linear-to-r from-indigo-900 via-slate-900 to-slate-950 rounded-2xl p-8 sm:p-10 text-white shadow-2xl relative overflow-hidden animate-slide-up hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col md:flex-row items-center justify-between">
           <div className="absolute right-0 top-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-400/20">
