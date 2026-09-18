@@ -86,9 +86,9 @@ export const LiveCodeMonitor: React.FC = () => {
   }, [currentLineIndex, currentCharIndex]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-95 min-w-95 max-w-[380px] shrink-0">
+    <div className="flex flex-col items-center justify-center w-95 min-w-95 max-w-95 shrink-0">
       {/* Shrunk Fixed Size Monitor Display Frame */}
-      <div className="w-[380px] min-w-[380px] max-w-[380px] h-[230px] min-h-[230px] max-h-[230px] bg-slate-950/80 backdrop-blur-xl border border-slate-700/60 rounded-xl shadow-2xl shadow-indigo-950/60 overflow-hidden relative flex flex-col justify-between group">
+      <div className="w-[380px] min-w-[380px] max-w-[380px] h-[230px] min-h-57.5 max-h-57.5 bg-slate-950/80 backdrop-blur-xl border border-slate-700/60 rounded-xl shadow-2xl shadow-indigo-950/60 overflow-hidden relative flex flex-col justify-between group">
 
         {/* Zero-latency Hardware-Accelerated Virtual Cursor */}
         <div
