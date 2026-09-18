@@ -1,4 +1,4 @@
-# 🛡️ SolidityGuard AI
+# 🛡️ VaultedCode
 
 **Smart Contract Vulnerability Detection & Automated AI Code Patching**
 
