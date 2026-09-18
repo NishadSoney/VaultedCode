@@ -100,7 +100,7 @@ export const LiveCodeMonitor: React.FC = () => {
         </div>
 
         {/* Subtle Screen Bezel Glare */}
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-white/5 via-transparent to-transparent pointer-events-none z-20" />
+        <div className="absolute top-0 right-0 w-full h-full bg-linear-to-bl from-white/5 via-transparent to-transparent pointer-events-none z-20" />
 
         {/* Translucent Window Topbar with "VaultedCode" Title */}
         <div className="bg-slate-900/40 backdrop-blur-md px-3.5 py-2 flex items-center justify-between border-b border-white/10 relative z-10 shrink-0">
