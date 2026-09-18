@@ -156,7 +156,7 @@ export const LiveCodeMonitor: React.FC = () => {
       {/* Compact Monitor Neck & Base */}
       <div className="flex flex-col items-center">
         {/* Stem */}
-        <div className="w-8 h-2.5 bg-gradient-to-b from-slate-700 to-slate-800 border-x border-slate-600 shadow-inner" />
+        <div className="w-8 h-2.5 bg-linear-to-b from-slate-700 to-slate-800 border-x border-slate-600 shadow-inner" />
         {/* Base */}
         <div className="w-24 h-1.5 bg-slate-700 rounded-full border border-slate-600 shadow-md" />
       </div>
